@@ -1,0 +1,84 @@
+.TH TUIPER 1
+.SH NAME
+tuiper \- terminal typing trainer with mode and duration selection
+.SH SYNOPSIS
+.B tuiper
+[\fB\-config\fR \fIfile\fR]
+[\fB\-man\fR]
+.SH DESCRIPTION
+.B tuiper
+is a terminal UI typing trainer with:
+.IP \(bu 2
+normal typing mode
+.IP \(bu 2
+special character practice mode
+.IP \(bu 2
+quote practice mode (remote API with fallback)
+.IP \(bu 2
+code practice mode (remote API or plain-text endpoint with fallback)
+.IP \(bu 2
+in-app duration selection
+.IP \(bu 2
+JSON configuration overrides
+.SH OPTIONS
+.TP
+.B \-config \fIfile\fR
+Path to JSON config file.
+Default is
+.I ~/.config/tuiper/config.json
+on Linux/macOS.
+.TP
+.B \-man
+Print this man page content to stdout and exit.
+.TP
+.B \-h, \-help
+Show help output and exit.
+.SH CONFIG FILE
+If the config file exists, these keys are supported:
+.TP
+.B normal_words
+Array of words for normal mode prompts.
+.TP
+.B special_char_words
+Array of symbol-heavy tokens for special character practice.
+.TP
+.B durations
+Array of durations for the in-app duration menu, e.g.
+.I ["15s","30s","1m","2m"].
+.TP
+.B prompt_word_count
+Number of tokens per generated prompt.
+.TP
+.B quote_endpoint
+HTTP endpoint used by quote mode (default: Quotable random quote API).
+.TP
+.B go_example_endpoint
+HTTP endpoint used by code practice mode.
+Accepts JSON with one of
+.I content/code/text
+or plain text response.
+.TP
+.B go_examples
+Local fallback snippets for code practice mode.
+.SH EXAMPLES
+.TP
+Run with default config path:
+.B tuiper
+.TP
+Run with explicit config:
+.B tuiper \-config ./tuiper.json
+.TP
+Print the man page:
+.B tuiper \-man
+.TP
+Run with explicit local-only code examples:
+.B tuiper \-config ~/.config/tuiper/config.json
+.SH KEYS
+.IP \(bu 2
+Splash: Enter continues, Ctrl+C quits
+.IP \(bu 2
+Mode/Duration menus: arrow keys or numeric quick-pick, Enter confirms
+.IP \(bu 2
+Typing: Backspace deletes one character, Ctrl+C quits
+.IP \(bu 2
+Quote and code practice modes auto-load next prompt after completion
