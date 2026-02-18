@@ -436,7 +436,7 @@ func main() {
 		fmt.Fprintln(out, `  "special_char_words": ["!@#$", ...]`)
 		fmt.Fprintln(out, `  "durations": ["15s", "30s", "1m", "2m"]`)
 		fmt.Fprintln(out, `  "prompt_word_count": 18`)
-		fmt.Fprintln(out, `  "quote_endpoint": "https://api.quotable.io/random?minLength=80&maxLength=220"`)
+		fmt.Fprintln(out, `  "quote_endpoint": "https://dummyjson.com/quotes/random"`)
 		fmt.Fprintln(out, `  "go_example_endpoint": ""  # empty disables remote go examples`)
 		fmt.Fprintln(out, `  "go_examples": ["for i := 0; i < 3; i++ { fmt.Println(i) }", ...]`)
 		fmt.Fprintln(out, "")

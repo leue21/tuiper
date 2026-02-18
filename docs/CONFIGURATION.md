@@ -17,7 +17,7 @@ If the file does not exist, built-in defaults are used.
   "special_char_words": ["!@#$", "%^&*"],
   "durations": ["15s", "30s", "1m", "2m"],
   "prompt_word_count": 18,
-  "quote_endpoint": "https://api.quotable.io/random?minLength=80&maxLength=220",
+  "quote_endpoint": "https://dummyjson.com/quotes/random",
   "go_example_endpoint": "",
   "go_examples": ["for i := 0; i < 3; i++ { fmt.Println(i) }"]
 }

@@ -48,7 +48,7 @@ func Default() AppConfig {
 		SpecialCharWords:  append([]string(nil), defaultSpecialCharWords...),
 		Durations:         []string{"15s", "30s", "1m", "2m"},
 		PromptWordCount:   18,
-		QuoteEndpoint:     "https://api.quotable.io/random?minLength=80&maxLength=220",
+		QuoteEndpoint:     "https://dummyjson.com/quotes/random",
 		GoExampleEndpoint: "",
 		GoExamples: []string{
 			"for i := 0; i < 10; i++ { fmt.Println(i) }",

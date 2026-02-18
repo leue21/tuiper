@@ -90,7 +90,7 @@ Supported keys and defaults:
 - `special_char_words`: list of symbol-heavy tokens for `Special Chars Practice`
 - `durations`: list used in duration menu, e.g. `["15s","30s","1m","2m"]`
 - `prompt_word_count`: words per generated prompt (normal/special modes)
-- `quote_endpoint`: default `https://api.quotable.io/random?minLength=80&maxLength=220`
+- `quote_endpoint`: default `https://dummyjson.com/quotes/random`
 - `go_example_endpoint`: default `""` (disabled; uses local `go_examples`)
 - `go_examples`: fallback snippets for `Code Practice`
 
