@@ -234,11 +234,25 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 						promptRunes = []rune(m.prompt)
 					}
 					idx := len(m.inputRunes)
-					m.inputRunes = append(m.inputRunes, r)
 					m.totalTyped++
 					if idx < len(promptRunes) && r == promptRunes[idx] {
+						m.inputRunes = append(m.inputRunes, r)
 						m.totalCorrect++
+						continue
 					}
+					if idx > 0 {
+						prevIdx := idx - 1
+						if prevIdx < len(promptRunes) &&
+							m.inputRunes[prevIdx] != promptRunes[prevIdx] &&
+							r == promptRunes[prevIdx] {
+							// If the user immediately corrects the previously mistyped
+							// character, repair that slot instead of shifting everything.
+							m.inputRunes[prevIdx] = r
+							m.totalCorrect++
+							continue
+						}
+					}
+					m.inputRunes = append(m.inputRunes, r)
 				}
 				if (m.selectedMode == prompt.ModeQuote || m.selectedMode == prompt.ModeCode) && len(m.inputRunes) >= len([]rune(m.prompt)) {
 					m.prompt = m.prompts.Next(m.selectedMode, m.prompt)
